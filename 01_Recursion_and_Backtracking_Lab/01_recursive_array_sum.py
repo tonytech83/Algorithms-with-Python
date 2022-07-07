@@ -1,5 +1,5 @@
 def array_sum(numbers, index):
-    if index == len(numbers) - 1:  # Check is this is the bottom of our array
+    if index == len(numbers) - 1:  # BASE CASE - Check is this is the bottom of our array
         return numbers[index]  # if True, then return sum of last element of our array
 
     return numbers[index] + array_sum(numbers, index + 1)  # sums the current element of aur array with rest of our array
