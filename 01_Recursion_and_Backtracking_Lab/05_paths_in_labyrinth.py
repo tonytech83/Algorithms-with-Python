@@ -14,7 +14,7 @@ def all_paths(row, col, matrix, direction, path):
 
     path.append(direction)
 
-    # check if index is searched end
+    # check if index is end point
     if matrix[row][col] == "e":
         print("".join(path))
     else:
