@@ -1,13 +1,15 @@
-def gen_loop(idx, vector):
-    if idx >= len(vector):
-        print(*vector, sep=" ")
+def gen_loop(idx, array):
+    # base case
+    if idx >= len(array):
+        print(*array, sep=" ")
         return
     for num in range(1, n + 1):
-        vector[idx] = num
-        gen_loop(idx + 1, vector)
+        array[idx] = num
+        # recursion
+        gen_loop(idx + 1, array)
 
 
 n = int(input())
-vector = [0] * n
+array = [0] * n
 
-gen_loop(0, vector)
+gen_loop(0, array)
