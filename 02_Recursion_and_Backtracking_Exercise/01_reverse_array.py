@@ -1,5 +1,5 @@
 def reversed_array(idx, numbers):
-    # base case - check for end on massive
+    # Base case - check for end on massive
     if idx == len(numbers) // 2:
         return
 
