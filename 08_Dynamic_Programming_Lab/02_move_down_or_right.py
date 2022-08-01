@@ -4,12 +4,15 @@ rows = int(input())
 cols = int(input())
 
 matrix = []
+# array where to store the calcs
 calc_matrix = []
 
+# fill the matrix array from input
 for _ in range(rows):
     matrix.append([int(x) for x in input().split()])
     calc_matrix.append([0] * cols)
 
+# for first cell from calc_matrix take first cell from matrix array
 calc_matrix[0][0] = matrix[0][0]
 
 # base calc -> calc if we have 1 row matrix
@@ -32,7 +35,7 @@ result = deque()
 
 while row > 0 and col > 0:
     result.appendleft([row, col])
-    # check if upper calc is greater than left calc
+    # check if upper calc is greater than left calc (prioritize left before upper with >=)
     if calc_matrix[row][col - 1] >= calc_matrix[row - 1][col]:
         col -= 1
     else:
