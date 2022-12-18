@@ -17,6 +17,14 @@ In this repository you can find solutions for tasks from the Algotithms course w
 
 - [Problem descriptiom and online judge system](https://judge.softuni.org/Contests/#!/List/ByCategory/350/Algorithms-with-Python)
 
+## Topics
+
+- Recursion and Backtracking
+- Searching and Sorting Algorithms
+- Graph Theory, Traversal and Topological Sorting
+- Graphs Shortest Path and MST
+- Dynamic Programming
+
 <br/>
 <br/>
 
