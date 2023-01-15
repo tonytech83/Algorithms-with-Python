@@ -1,5 +1,12 @@
 def calc_factorial(n):
-    if n == 0:
+    """
+    Recursive func which calculates factorial of n.
+
+    :param n: integer
+    :return: factorial of n
+    """
+    # BASE CASE - when n = 1
+    if n == 1:
         return 1
     return n * calc_factorial(n - 1)
 
