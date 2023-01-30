@@ -19,11 +19,11 @@ In this repository you can find solutions for tasks from the Algotithms course w
 
 ## Topics
 
-- Recursion and Backtracking
-- Searching and Sorting Algorithms
-- Graph Theory, Traversal and Topological Sorting
-- Graphs Shortest Path and MST
-- Dynamic Programming
+- [Recursion and Backtracking](https://github.com/tonytech83/Algorithms-with-Python/tree/main/01_Recursion_and_Backtracking_Lab)
+- [Searching and Sorting Algorithms](https://github.com/tonytech83/Algorithms-with-Python/tree/main/03_Searching_and_Sorting_Algorithms_Lab)
+- [Graph Theory, Traversal and Topological Sorting](https://github.com/tonytech83/Algorithms-with-Python/tree/main/04_Graph_Theory_Traversal_and_Topological_Sorting_Lab)
+- [Graphs Shortest Path and MST](https://github.com/tonytech83/Algorithms-with-Python/tree/main/06_Graphs_Shortest_Path_and_MST_Lab)
+- [Dynamic Programming](https://github.com/tonytech83/Algorithms-with-Python/tree/main/08_Dynamic_Programming_Lab)
 
 <br/>
 <br/>
