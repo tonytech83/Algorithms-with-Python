@@ -5,7 +5,7 @@ Algorithms with Python - July 2022
 <br/>
 
 <h5 align="center">
-In this repository you can find solutions for tasks from the Algotithms course with Python of the SoftUni University software academy.
+In this repository you can find solutions for tasks from the open course Algotithms with Python part of the SoftUni University software academy.
 </h5>
 
 <br/>
