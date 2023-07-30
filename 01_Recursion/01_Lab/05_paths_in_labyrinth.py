@@ -1,8 +1,22 @@
 # exam: 05. Paths in Labyrinth
 # judge: https://judge.softuni.org/Contests/Compete/Index/3459#4
 
-def find_all_paths(row, col, lab, direction, path):
+
+def is_candidate(row, col, lab):
     if row < 0 or row >= len(lab) or col < 0 or col >= len(lab[0]):
+        return False
+
+    if lab[row][col] == VISITED:
+        return False
+
+    if lab[row][col] == WALL:
+        return False
+
+    return True
+
+
+def find_all_paths(row, col, lab, direction, path):
+    if not is_candidate(row, col, lab):
         return
 
     if lab[row][col] == EXIT:
@@ -11,13 +25,7 @@ def find_all_paths(row, col, lab, direction, path):
         path.pop()
         return
 
-    if lab[row][col] == WALL:
-        return
-
-    if lab[row][col] == VISITED:
-        return
-
-    # Pre-action
+        # Pre-action
     lab[row][col] = VISITED
     path.append(direction)
 
