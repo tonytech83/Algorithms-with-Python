@@ -9,7 +9,7 @@ def find_index(target, numbers):
     while True:
         # search while pointers are on same index -> we have only one element
         # or left and right pointers switched -> we don't have more elements
-        if left_idx >= right_idx:
+        if left_idx > right_idx:
             print(-1)
             return
 
