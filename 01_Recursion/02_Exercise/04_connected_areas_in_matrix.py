@@ -1,3 +1,6 @@
+# exam: 04. Connected Areas in Matrix
+# judge: https://judge.softuni.org/Contests/Compete/Index/3460#3
+
 class Area:
     def __init__(self, row, col, size):
         self.row = row
@@ -39,5 +42,5 @@ for row in range(rows):
             areas.append(Area(row, col, size))
 
 print(f'Total areas found: {len(areas)}')
-for idx, area in enumerate(sorted(areas, key=lambda t: (-t.size, t.row, t.col))):
+for idx, area in enumerate(sorted(areas, key=lambda t: -t.size)):
     print(f'Area #{idx + 1} at ({area.row}, {area.col}), size: {area.size}')
