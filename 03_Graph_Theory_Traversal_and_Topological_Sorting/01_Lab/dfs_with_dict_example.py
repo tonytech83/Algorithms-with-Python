@@ -1,16 +1,22 @@
+"""
+Depth First Search (DFS) algorithm example
+Used Dictionary to store graph (when have strings or non-consecutive numbers for node names)
+"""
+
+
 def dfs(node, graph, visited):
-    # if node is visited
+    # BASE CASE if node is visited
     if node in visited:
         return
 
-    # if node not visited, add it in visited set
+    # Add node to visited set
     visited.add(node)
 
-    # recursion - walk through all nodes
+    # Recursion - walk through all childs of the node
     for child in graph[node]:
         dfs(child, graph, visited)
 
-    # print the last node
+    # print the last node which hasn't childs
     print(node, end=' ')
 
 
@@ -23,7 +29,7 @@ graph = {
     21: [14],
     14: [23, 6],
     23: [21],
-    6: []
+    6: [],
 }
 
 visited = set()
