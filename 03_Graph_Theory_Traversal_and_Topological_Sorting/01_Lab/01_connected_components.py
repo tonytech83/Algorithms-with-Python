@@ -1,8 +1,11 @@
+# exam: 01. Connected Components
+# judge: https://judge.softuni.org/Contests/Compete/Index/3462#0
+
 def dfs(node, graph, visited, component):
-    if visited[node]:
+    if node in visited:
         return
 
-    visited[node] = True
+    visited.add(node)
 
     for child in graph[node]:
         dfs(child, graph, visited, component)
@@ -12,18 +15,17 @@ def dfs(node, graph, visited, component):
 
 nodes = int(input())
 
-graph = []
-
+graph = {}
 for node in range(nodes):
     line = input()
-    children = [] if line == '' else [int(x) for x in line.split()]
-    graph.append(children)
+    childs = [] if line == '' else [int(x) for x in line.split()]
+    graph[node] = childs
 
-visited = [False] * nodes
-
-for node in range(nodes):
-    if visited[node]:
+visited = set()
+for node in graph:
+    if node in visited:
         continue
+
     component = []
     dfs(node, graph, visited, component)
     print(f"Connected component: {' '.join([str(x) for x in component])}")
