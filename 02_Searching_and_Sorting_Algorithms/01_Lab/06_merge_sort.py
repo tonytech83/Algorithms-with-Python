@@ -7,6 +7,8 @@
 # - Merge the sorted sub-lists into a single list
 # - Memory: O(n) / O(log(n)) -> two implementations
 # - Time: O(n*log(n))
+# - Stable: Yes
+# - Method: Merging
 # - Highly parallelizable on multiple cores / machines -> up to O(log(n))
 
 def merge_arrays(left_array, right_array):
