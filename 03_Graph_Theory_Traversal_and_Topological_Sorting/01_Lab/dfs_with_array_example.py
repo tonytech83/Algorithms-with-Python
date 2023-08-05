@@ -6,11 +6,11 @@ Used Array to store graph (when have consecutive numbers for node names)
 
 def dfs(node, graph, visited):
     # BASE CASE if node is visited (the value is True)
-    if graph[node]:
+    if visited[node]:
         return
 
     # Mark the node as visited (True)
-    graph[node] = True
+    visited[node] = True
 
     # Recursion - walk through all childs of the node
     for child in graph[node]:
