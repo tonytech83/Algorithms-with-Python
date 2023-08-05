@@ -1,8 +1,17 @@
-# using BFS
+"""
+exam: 02. Dijkstra's Algorithm
+judge: https://judge.softuni.org/Contests/Compete/Index/3464#1
 
-import sys
-from queue import PriorityQueue
+Finding the shortest path from given node to all other nodes in a directed / undirected weighted graph
+- weights on edges are non-negative
+- edges can be directed or not
+- weights do not have to be distances
+- shortest path is not necessary unique (weighted)
+
+Dijkstra is similar to BFS and use a priority queue instead queue
+"""
 from collections import deque
+from queue import PriorityQueue
 
 
 class Edge:
@@ -12,33 +21,30 @@ class Edge:
         self.weight = weight
 
 
-edges = int(input())
-
-# graph dictionary
+edges_count = int(input())
 graph = {}
 
-for _ in range(edges):
+for _ in range(edges_count):
     source, destination, weight = [int(x) for x in input().split(', ')]
-    # if source is not part of graph, add with empty array
     if source not in graph:
         graph[source] = []
-    # if destination is not part of graph, add with empty array
     if destination not in graph:
         graph[destination] = []
-    # add for every source all edges
+
     graph[source].append(Edge(source, destination, weight))
+    # graph[destination].append(Edge(destination, source, weight))
 
 start = int(input())
-end = int(input())
+target = int(input())
 
 # search for max node to determinate the length of distance array
 max_node = max(graph.keys())
 
-# create distance array (sys.maxsize can be replaced with float('inf')
-distance = [sys.maxsize] * (max_node + 1)
-# create parent array
+# create distance array with float('inf') for weight
+distance = [float('inf')] * (max_node + 1)
 parent = [None] * (max_node + 1)
 
+# mark the distance of start to be 0
 distance[start] = 0
 
 pq = PriorityQueue()
@@ -46,9 +52,12 @@ pq = PriorityQueue()
 pq.put((0, start))
 
 while not pq.empty():
+    # takes the element with smaller weight
     min_distance, node = pq.get()
-    if node == end:
+
+    if node == target:
         break
+
     for edge in graph[node]:
         new_distance = min_distance + edge.weight
         if new_distance < distance[edge.destination]:
@@ -56,14 +65,15 @@ while not pq.empty():
             parent[edge.destination] = node
             pq.put((new_distance, edge.destination))
 
-if distance[end] == sys.maxsize:
+if distance[target] == float('inf'):
     print('There is no such path.')
 else:
-    print(distance[end])
+    print(distance[target])
 
     path = deque()
-    node = end
+    node = target
     while node is not None:
         path.appendleft(node)
         node = parent[node]
+
     print(*path, sep=' ')
