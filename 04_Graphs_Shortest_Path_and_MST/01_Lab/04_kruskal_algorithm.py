@@ -2,7 +2,15 @@
 exam: 04. Kruskal's Algorithm
 judge: https://judge.softuni.org/Contests/Compete/Index/3464#3
 
-Minimum Spanning Tree (MST)
+Minimum Spanning Tree (MST) with Kruskal's algorithm
+ - Create a forest F holding all graph vertices and no edges
+ - Create a set S holding all edges in the graph
+ - While S is non-empty
+    - Remove the edge e with min weight
+    - If e connects two different trees
+        - Add e to the forest
+        - Join these two trees into a single tree
+- The graph may not be connected
 """
 
 
