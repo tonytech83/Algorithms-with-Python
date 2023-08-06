@@ -32,7 +32,6 @@ for _ in range(edges_count):
         graph[destination] = []
 
     graph[source].append(Edge(source, destination, weight))
-    # graph[destination].append(Edge(destination, source, weight))
 
 start = int(input())
 target = int(input())
