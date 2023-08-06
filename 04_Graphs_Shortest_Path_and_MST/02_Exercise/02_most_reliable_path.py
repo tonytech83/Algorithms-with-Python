@@ -1,3 +1,9 @@
+"""
+exam: 02. Most Reliable Path
+judge: https://judge.softuni.org/Contests/Practice/Index/3465#1
+
+Modified Dijkstra to find path with the biggest distance with array
+"""
 from collections import deque
 from queue import PriorityQueue
 
@@ -12,11 +18,9 @@ class Edge:
 nodes = int(input())
 edges = int(input())
 
-# create array for graph and read graph from input
 graph = []
 [graph.append([]) for _ in range(nodes)]
 
-# read edges form input
 for _ in range(edges):
     first, second, weight = [int(x) for x in input().split()]
     edge = Edge(first, second, weight)
@@ -24,20 +28,22 @@ for _ in range(edges):
     graph[second].append(edge)
 
 start_node = int(input())
-end_node = int(input())
-
-pq = PriorityQueue()
-pq.put((-100, start_node))
+target_node = int(input())
 
 distance = [float('-inf')] * nodes
 distance[start_node] = 100
 
 parent = [None] * nodes
 
+pq = PriorityQueue()
+pq.put((-100, start_node))
+
 while not pq.empty():
     max_distance, node = pq.get()
-    if node == end_node:
+
+    if node == target_node:
         break
+
     for edge in graph[node]:
         child = edge.second if edge.first == node else edge.first
         new_distance = -max_distance * edge.weight / 100
@@ -46,14 +52,12 @@ while not pq.empty():
             parent[child] = node
             pq.put((-new_distance, child))
 
-
-print(f"Most reliable path reliability: {distance[end_node]:.2f}%")
+print(f'Most reliable path reliability: {distance[target_node]:.2f}%')
 
 path = deque()
-node = end_node
+node = target_node
 while node is not None:
     path.appendleft(node)
     node = parent[node]
 
 print(*path, sep=' -> ')
-
