@@ -1,6 +1,9 @@
-# MST, can use Prin and Kruskal algorithms
-# we use Prim
+"""
+exam: 05. Cable Network
+judge: https://judge.softuni.org/Contests/Practice/Index/3465#4
 
+Solution with Prim's algorithm
+"""
 from queue import PriorityQueue
 
 
@@ -10,7 +13,6 @@ class Edge:
         self.second = second
         self.weight = weight
 
-    # always return smaller
     def __gt__(self, other):
         return self.weight > other.weight
 
@@ -19,53 +21,48 @@ budget = int(input())
 nodes = int(input())
 edges = int(input())
 
-# read the edges from input
+forest = set()
 graph = []
 [graph.append([]) for _ in range(nodes)]
 
-tree = set()
-
 for _ in range(edges):
-    edge_data = input().split()
-    first, second, weight = int(edge_data[0]), int(edge_data[1]), int(edge_data[2])
-    graph[first].append(Edge(first, second, weight))
-    graph[second].append(Edge(first, second, weight))
+    line = input().split()
+    first, second, weight = int(line[0]), int(line[1]), int(line[2])
+    edge = Edge(first, second, int(weight))
+    graph[first].append(edge)
+    graph[second].append(edge)
 
-    # looking for 4th element, in our case "connected"
-    if len(edge_data) == 4:
-        tree.add(first)
-        tree.add(second)
+    if 'connected' in line:
+        forest.add(first)
+        forest.add(second)
 
 pq = PriorityQueue()
-
-# populate all edges for any node in tree
-for node in tree:
+# add all edges which are connected already
+for node in forest:
     for edge in graph[node]:
         pq.put(edge)
 
 budget_used = 0
 
-# Prim algorithm
 while not pq.empty():
     min_edge = pq.get()
     non_tree_node = None
 
-    if min_edge.first in tree and min_edge.second not in tree:
+    if min_edge.first in forest and min_edge.second not in forest:
         non_tree_node = min_edge.second
-    elif min_edge.first not in tree and min_edge.second in tree:
+
+    if min_edge.first not in forest and min_edge.second in forest:
         non_tree_node = min_edge.first
 
     if non_tree_node is None:
         continue
 
-    # check is still have budget
     if budget_used + min_edge.weight > budget:
         break
 
-    # if we can use this edge
     budget_used += min_edge.weight
 
-    tree.add(non_tree_node)
+    forest.add(non_tree_node)
 
     for edge in graph[non_tree_node]:
         pq.put(edge)
