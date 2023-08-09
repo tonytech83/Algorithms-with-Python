@@ -1,4 +1,10 @@
-# Topological sorting with DFS and dictionary
+"""
+exam: 01. The Story Telling
+judge: https://judge.softuni.org/Contests/Practice/Index/3474#0
+
+Topological sorting with DFS and dictionary
+"""
+
 
 from collections import deque
 
