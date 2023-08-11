@@ -1,6 +1,8 @@
 """
 exam: 01. Maze Explorer
 judge: https://judge.softuni.org/Contests/Practice/Index/4044#0
+
+Using Depth-First Search (DFS) algorithm
 """
 
 
