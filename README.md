@@ -5,7 +5,7 @@ Algorithms with Python - July 2022
 <br/>
 
 <h5 align="center">
-In this repository you can find solutions for tasks from the open course Algotithms with Python, part of the SoftUni University software academy.
+The algorithms course will introduce participants to the most common programming techniques. Along with this, multiple algorithmic problems will be solved and analyses of different approaches will be conducted - their properties, applications, advantages and disadvantages. Participants in the training will develop their algorithmic thinking skills and will acquire skills for working with the basic classes of algorithms used in practice: recursion and backtracking, recursion with variable usage, searching and sorting, as well as graph theory - implementation in computer memory, minimum spanning tree, traversal and finding the shortest path. Students will be introduced to the technique of dynamic programming and will solve known problems such as the Fibonacci sequence, finding the longest common sequence and the longest sequence of increasing elements.
 </h5>
 
 <br/>
